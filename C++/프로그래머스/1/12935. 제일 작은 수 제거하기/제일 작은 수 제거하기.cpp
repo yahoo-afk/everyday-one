@@ -19,9 +19,10 @@ vector<int> solution(vector<int> arr) {
             {
                 minnum = arr[i];
             }
-            answer = arr;
-            answer.erase(remove(answer.begin(), answer.end(), minnum),answer.end());
+            
         }
+        answer = arr;
     }
+     answer.erase(remove(answer.begin(), answer.end(), minnum),answer.end());
     return answer;
 }
