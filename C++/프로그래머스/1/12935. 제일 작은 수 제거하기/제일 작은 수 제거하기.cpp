@@ -1,28 +1,26 @@
 #include <string>
 #include <vector>
-#include <algorithm>
-
+#include <algorithm> 
 using namespace std;
 
 vector<int> solution(vector<int> arr) {
     vector<int> answer;
-    int minnum = arr[0];
-    if (arr.size() == 1)
+    int min =arr[0];
+    int minindex =0;
+    if(arr.size() <=1)
     {
         answer.push_back(-1);
+        return answer;
     }
-    else 
+    for(int i=0; i<arr.size(); ++i)
     {
-        for (int i = 0; i < arr.size(); i++)
+        if(min >arr[i])
         {
-            if( arr[i]<minnum)
-            {
-                minnum = arr[i];
-            }
-            
+            min = arr[i];
+            minindex = i;
         }
-        answer = arr;
-    }
-     answer.erase(remove(answer.begin(), answer.end(), minnum),answer.end());
-    return answer;
+    }    
+    arr.erase(arr.begin()+minindex);
+    
+    return arr;
 }
