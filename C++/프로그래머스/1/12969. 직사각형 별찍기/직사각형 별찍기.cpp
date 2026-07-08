@@ -6,14 +6,13 @@ int main(void) {
     int a;
     int b;
     cin >> a >> b;
-    for (int i = 0; i < b; i++)
+    for(int i=1; i<=b; ++i)
     {
-        cout << "*";
-        for (int j = 0; j < a-1; j++)
+        for(int j=1; j<=a; ++j)
         {
-            cout << "*";
+        cout<<'*';
         }
-        cout<<""<< endl;
+        cout << endl;
     }
     return 0;
 }
