@@ -1,24 +1,16 @@
-#include <string>
-#include <vector>
-
-using namespace std;
-
 int solution(int a, int b, int n) {
-    //a 콜라교환에 필요한 병갯수
-    //b 마트가 주는 콜라갯수
-    //n 빈병갯수
     int answer = 0;
-    //n/a*b 가 콜라갯수 한번교환했을때 
-    while(n>=a)
-    {
-        answer +=(n/a)*b;
-        // 콜라병남은갯수 확인
-        n = (n/a*b + n%a);
+    
+    // 빈 병 n개가 a개 이상일 때만 교환 가능
+    while(n >= a) {
+        int count = n / a;        // 교환 가능한 횟수
+        int received = count * b; // 교환해서 새로 받는 콜라 수
+        
+        answer += received;       // 총 받은 콜라 수에 누적
+        
+        // n의 갱신: (교환하고 남은 나머지 빈 병) + (새로 마시고 생긴 빈 병)
+        n = (n % a) + received;
     }
-    
-    
-    
-    
     
     return answer;
 }
